@@ -1,4 +1,5 @@
-# Getting Started with Create React App
+# GitHub Search and Lean App
+This is an app where you can search for users and login to receive recommendations for educational resources based on your learning path. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
