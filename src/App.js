@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import UserCards from './components/UserCards';
 
 const App = () => {
@@ -12,6 +12,7 @@ const App = () => {
 
 
   const prevPage = () => {
+    if (currPage === 1) return
     setCurrPage((curr) => curr - 1);
     displayData(currPage - 1); // I had to ask for help with this line to get state to update properly Credit: Taiwo Yusef
   };
@@ -26,9 +27,6 @@ const App = () => {
     displayData(1);// I had to ask for help with this line to get state to update properly Credit: Taiwo Yusef
   };
 
-  useEffect(() => {
-    console.log(currPage)
-  }, [currPage])
 
   const displayData = async (page) => {
     window.scrollTo(0, 0)
@@ -77,8 +75,18 @@ const App = () => {
         <h2>Discover user profiles </h2>
       }
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-        {currPage === 1 ? null : <button onClick={prevPage}>Previous</button>}
-        {!users ? null : <button onClick={nextPage}>Next</button>}
+        {users ? <button onClick={prevPage}>Previous</button> : null}
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+          {/*work on pagination logic*/}
+          {users ? [...Array(Math.ceil(users.total_count / 16)).keys()].slice(currPage, currPage + 20).map((page, index) => (
+            <button onClick={() => {
+              setCurrPage(index + 1)
+              displayData(index + 1)
+            }} key={index}>{index + 1}</button>
+          )) : null}
+        </div>
+
+        {users ? <button onClick={nextPage}>Next</button> : null}
       </div>
     </>
   );
