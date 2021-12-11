@@ -37,6 +37,8 @@ const App = () => {
       })
   }
 
+
+
   const props = {
     users,
     bioArr,
@@ -49,13 +51,13 @@ const App = () => {
     <>
       <h1>GitHub Search and Learn App</h1>
       <label htmlFor="site-search">Search for any user on GitHub
-        <input autoComplete='off' onChange={(e) => setUserInput(e.target.value)} value={userInput} type="search" id="site-search" name="q" aria-label="Search through site content" />
+        <input onKeyDown={(e) => e.key === 'Enter' ? displayData(userInput) : null} autoComplete='off' onChange={(e) => setUserInput(e.target.value)} value={userInput} type="search" id="site-search" name="q" aria-label="Search through site content" />
       </label>
       <button onClick={() => displayData(userInput)}>Search</button>
 
       {users && userLocation && followersArr && followingArr ?
         <UserCards {...props} /> :
-        <h2>Discover user profiles or login to received personalized learning plans</h2>
+        <h2>Discover user profiles or login to receive personalized learning plans</h2>
       }
     </>
   );
