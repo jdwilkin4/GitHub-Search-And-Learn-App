@@ -4,6 +4,9 @@ import UserCards from './components/UserCards';
 const App = () => {
   const [users, setUsers] = useState(null);
   const [bioArr, setBioArr] = useState(null);
+  const [userLocation, setUserLocation] = useState(null);
+  const [followersArr, setFollowersArr] = useState(null);
+  const [followingArr, setFollowingArr] = useState(null);
 
 
   useEffect(() => {
@@ -14,12 +17,18 @@ const App = () => {
           setUsers(user)
           Promise.all(
             user.items.map(
-              url => fetch(url.url)
+              profile => fetch(profile.url)
                 .then(res => res.json())
             )
           ).then(url => {
-            const bios = url.map(user => user.bio)
+            const bios = url.map(profile => profile.bio)
+            const locations = url.map(profile => profile.location)
+            const followers = url.map(profile => profile.followers)
+            const following = url.map(profile => profile.following)
             setBioArr(bios)
+            setUserLocation(locations)
+            setFollowersArr(followers)
+            setFollowingArr(following)
             console.log(bios)
           })
         })
@@ -27,10 +36,19 @@ const App = () => {
     fetchData()
   }, [])
 
+  const props = {
+    users,
+    bioArr,
+    userLocation,
+    followersArr,
+    followingArr
+  }
+
   return (
     <>
       <h1>GitHub Search and Learn App</h1>
-      { users && bioArr ? <UserCards users={users} bioArr={bioArr} /> : <h2>Loading...</h2>}
+      { users && userLocation && followersArr && followingArr ? <UserCards {...props} /> : <h2>Loading...</h2>}
+
     </>
   );
 }
