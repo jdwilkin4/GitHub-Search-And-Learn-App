@@ -10,31 +10,32 @@ const App = () => {
   const [followingArr, setFollowingArr] = useState(null);
   const [currPage, setCurrPage] = useState(1);
 
+
   const prevPage = () => {
-    setCurrPage(curr => curr - 1)
-    displayData()
-  }
+    setCurrPage((curr) => curr - 1);
+    displayData(currPage - 1); // I had to ask for help with this line to get state to update properly Credit: Taiwo Yusef
+  };
 
   const nextPage = () => {
-    setCurrPage(curr => curr + 1)
-    displayData()
-  }
+    setCurrPage((curr) => curr + 1);
+    displayData(currPage + 1);// I had to ask for help with this line to get state to update properly Credit: Taiwo Yusef
+  };
 
   const resetPage = () => {
-    setCurrPage(curr => curr = 1)
-    displayData()
-  }
+    setCurrPage((curr) => (curr = 1));
+    displayData(1);// I had to ask for help with this line to get state to update properly Credit: Taiwo Yusef
+  };
 
   useEffect(() => {
     console.log(currPage)
   }, [currPage])
 
-  const displayData = async () => {
+  const displayData = async (page) => {
     window.scrollTo(0, 0)
     if (userInput === '') {
       return
     }
-    const res = await fetch(`https://api.github.com/search/users?q=${userInput}&per_page=16&page=${currPage}`);
+    const res = await fetch(`https://api.github.com/search/users?q=${userInput}&per_page=16&page=${page}`);
     const user = await res.json();
     setUsers(user);
     Promise.all(
