@@ -1,5 +1,6 @@
 import { useState } from "react";
 import UserCards from './UserCards';
+import WelcomeOptions from './WelcomeOptions';
 
 const Homepage = () => {
   const [userInput, setUserInput] = useState('');
@@ -85,8 +86,7 @@ const Homepage = () => {
 
 
       {users && userLocation && followersArr && followingArr ?
-        <UserCards {...props} /> :
-        <h2 className="text-center mt-3">Discover user profiles or explore other learning resources </h2>
+        <UserCards {...props} /> : <WelcomeOptions />
       }
       <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
         {users ? <button className="page-link" onClick={prevPage}>Previous</button> : null}

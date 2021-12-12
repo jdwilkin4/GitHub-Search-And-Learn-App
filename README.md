@@ -1,10 +1,17 @@
 # GitHub Search and Learn App
-This is an app where you can search for users and login to receive recommendations for educational resources based on your learning path. 
+This is an app where you can search for users and view recommendations for educational resources.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Design
 This project was designed used Bootstrap 5 and FontAwesome Icons.
+
+## Technologies Used
+* React
+* React Router
+
+## Testing
+* Jest
 
 ## Available Scripts
 
