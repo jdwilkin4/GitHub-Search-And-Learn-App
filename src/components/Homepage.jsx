@@ -88,17 +88,17 @@ const Homepage = () => {
         <UserCards {...props} /> :
         <h2 className="text-center mt-3">Discover user profiles or explore other learning resources </h2>
       }
-      <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
         {users ? <button className="page-link" onClick={prevPage}>Previous</button> : null}
         <div className="pagination" style={{ display: 'flex', flexWrap: 'wrap' }}>
           {/*work on pagination logic*/}
           {/*[...Array(Math.ceil(users.total_count / 16)).keys()].slice(currPage, currPage + 20)*/}
-          {users ? Array.from(Array(20).keys()).map((page, index) => (
+          {/* {users ? Array.from(Array(20).keys()).map((page, index) => (
             <button className="page-link" onClick={() => {
               setCurrPage(index + 1)
               displayData(index + 1)
             }} key={index}>{index + 1}</button>
-          )) : null}
+          )) : null} */}
         </div>
 
         {users ? <button className="page-link" onClick={nextPage}>Next</button> : null}
