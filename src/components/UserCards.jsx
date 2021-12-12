@@ -5,14 +5,14 @@ const UserCards = ({ users, bioArr, userLocation, followersArr, followingArr }) 
     display: 'flex',
     flexDirection: 'column',
     width: '300px',
-    alignItems: 'center'
+    alignItems: 'center',
   }
 
   return (
     <>
       <h2 className="text-center">Total search results: {users.total_count}</h2>
 
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
         {users.items.map((user, index) => (
           <div key={index} style={cardStyles}>
             <h3>{user.login}</h3>
