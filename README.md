@@ -16,6 +16,7 @@ This project was deployed to Netlify.
 
 ## Testing
 * Jest
+The test files can be found next to the files being tested. 
 
 ## Available Scripts
 
