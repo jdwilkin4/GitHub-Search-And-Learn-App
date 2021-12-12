@@ -1,14 +1,18 @@
 # GitHub Search and Learn App
-This is an app where you can search for users and view recommendations for educational resources.
+This is an app where you can search for users and view recommendations for educational resources.<br>
+[Live app](https://github-search-and-learn-app.netlify.app/) 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Design
-This project was designed used Bootstrap 5 and FontAwesome Icons.
+This project was designed using Bootstrap 5 and FontAwesome Icons.
 
 ## Technologies Used
 * React
 * React Router
+
+## Deployment
+This project was deployed to Netlify. 
 
 ## Testing
 * Jest
