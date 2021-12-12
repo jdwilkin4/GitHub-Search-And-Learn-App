@@ -1,8 +1,12 @@
+import ResourcesTemplate from './ResourcesTemplate';
 const WebDevelopmentPage = () => {
+  const props = {
+    title: 'Web Development Resources',
+    subtitle: 'Top 20 Web Development Repositories',
+    url: 'https://api.github.com/search/repositories?q=web+dev&sort=stars&order=desc&per_page=20'
+  }
   return (
-    <>
-      <h1>Web Development page</h1>
-    </>
+    <ResourcesTemplate {...props} />
   )
 }
 export default WebDevelopmentPage;
